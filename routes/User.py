@@ -3,17 +3,13 @@ from middleware.user_auth import create_jwt_token, get_current_user
 from models.User import UserModel
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
-from jose import JWTError, jwt
 from passlib.context import CryptContext
 from dotenv import load_dotenv
-from pymongo import MongoClient
-from bson import ObjectId
-import os
-import datetime
 load_dotenv()
-router = APIRouter()
-
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
+
+router = APIRouter()
 
 
 @router.post("/register/", response_model=dict)
