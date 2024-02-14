@@ -1,13 +1,7 @@
-
 from config.db import item_collection
-from middleware.user_auth import create_jwt_token, get_current_user
-from fastapi import APIRouter, Depends, HTTPException, status
-from fastapi.security import OAuth2PasswordBearer
-from jose import JWTError, jwt
-from passlib.context import CryptContext
-from pymongo import MongoClient
+from middleware.user_auth import  get_current_user
+from fastapi import APIRouter, Depends, HTTPException
 from bson import ObjectId
-import datetime
 from models.Item import ItemModel
 router = APIRouter()
 
